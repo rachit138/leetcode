@@ -14,20 +14,15 @@ class Solution(object):
         if head is None or head.next is None:
             return head
 
-        temp = head
+        slow = fast = head
         l = 1
-        while temp.next:
+        while fast.next:
             l += 1
-            temp = temp.next
-        k = k % l
-        fast = head
+            fast = fast.next
+        k = l - 1 - k % l
         while k:
             k -= 1
-            fast = fast.next
-        slow = head
-        while fast.next:
             slow = slow.next
-            fast = fast.next
         fast.next = head
         head = slow.next
         slow.next = None
