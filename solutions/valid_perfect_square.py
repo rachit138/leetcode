@@ -1,21 +1,18 @@
 class Solution(object):
     def isPerfectSquare(self, n):
         """
-        :type num: int
+        :type n: int
         :rtype: bool
         """
         if n == 1:
             return True
-        low = 1
-        high = n
+        low, high = 1, n
         mid = (low + high) / 2
         while mid != low:
-            if mid * mid == n:
+            val = mid * mid
+            if val == n:
                 return True
-            elif mid * mid < n:
-                low = mid
-            else:
-                high = mid
+            low, high = (mid, high) if val < n else (low, mid)
             mid = (low + high) / 2
         return False
 
