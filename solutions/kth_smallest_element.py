@@ -6,20 +6,14 @@
 #         self.right = None
 
 class Solution(object):
-    def inorderTraversal(self, root):
+    def kthSmallest(self, root, k):
         """
         :type root: TreeNode
-        :rtype: List[int]
+        :type k: int
+        :rtype: int
         """
-        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right) if root else []
-
-    def inorderTraversal(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[int]
-        """
-        res = []
         st = []
+        res = []
         node = root
         while st or node:
             if node:
@@ -28,5 +22,8 @@ class Solution(object):
             else:
                 node = st.pop()
                 res.append(node.val)
+                if len(res) == k:
+                    return node.val
                 node = node.right
-        return res
+        return -1
+               
