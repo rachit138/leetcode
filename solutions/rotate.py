@@ -1,0 +1,10 @@
+class Solution(object):
+    def rotate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        p = len(nums)-k%len(nums)
+        nums.extend(nums[:p])
+        del nums[:p]
