@@ -24,4 +24,4 @@ class Solution(object):
         return solutions[target]
 
 
-Solution().combinationSum([2, 3, 6, 7], 7)
+print Solution().combinationSum([2, 3, 6, 7], 7)
